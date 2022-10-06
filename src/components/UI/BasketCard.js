@@ -1,14 +1,28 @@
-import React from 'react'
-import { useBasket } from '../../store/BasketContext'
+import React, { useContext } from "react";
+import BasketContext from "../../store/basket-context";
 const BasketCard = () => {
+  const {items} = useContext(BasketContext);
 
-  const {items}=useBasket();
+ 
+  
+ 
+
   return (
-    <div>UI
-      <div>{items}</div>
-      <div>{items.length}</div>
+    <div>
+     
+     {
+      items.map((item)=>(
+        <div>
+          <div>{item.name}</div>
+          <div>{item.price}</div>
+        </div>
+        
+      ))
+     }
+     
+      
     </div>
-  )
-}
+  );
+};
 
-export default BasketCard
+export default BasketCard;
